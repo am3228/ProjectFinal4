@@ -8,5 +8,5 @@ class Config:
     FLASK_ENV = "routes.py"
 
     # Static Assets
-    STATIC_FOLDER = "static"
+    STATIC_FOLDER = "staticcss"
     TEMPLATES_FOLDER = "templates"
