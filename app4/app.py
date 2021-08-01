@@ -5,6 +5,10 @@ app = Flask(__name__)
 def home():
     return "Hello World!"
 
+@app.route("/api/v1/users/", methods=['GET', 'POST', 'PUT'])
+def users():
+    #... Logic goes here
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', post=5003, debug=True)
 
