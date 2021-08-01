@@ -1,4 +1,4 @@
-from flask import Flask, Markup, render_template, make_response, request
+from flask import Flask, Markup, render_template, make_response, request, jsonify
 from logic import square_of_number_plus_nine
 
 # Create Flask's 'app' object
@@ -35,6 +35,14 @@ def get_hello():
         return make_response('Malformed request', 400)
     headers = {"Content-Type": "application/json"}
     return make_response('it worked!', 200, headers)
+
+@app.route("/", methods=['GET'])
+def hello():
+    if request.method != 'GET':
+        return make_response('Malformed request', 400)
+    my_dict = {'key': 'dictionary value'}
+    headers = {"Content-Type": "application/json"}
+    return make_response(jsonify(my_dict), 200, headers)
 
 @app.route("/")
 def hello():
