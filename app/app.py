@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Markup
 from logic import square_of_number_plus_nine
 
 # Create Flask's 'app' object
@@ -8,6 +8,10 @@ app = Flask(__name__)
 def logic():
     value = square_of_number_plus_nine(5)
     return str(value)
+
+@app.route("/markup")
+def markup():
+    return Markup("<h1>Hello World!</h1>")
 
 @app.route("/")
 def hello():
