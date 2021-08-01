@@ -1,4 +1,4 @@
-from flask import Flask, Markup, render_template
+from flask import Flask, Markup, render_template, make_response
 from logic import square_of_number_plus_nine
 
 # Create Flask's 'app' object
@@ -23,6 +23,11 @@ def markup():
 @app.route("/template")
 def hello_template():
     return render_template("index.html")
+
+@app.route("/response")
+def response():
+    headers = {"Content-Type": "application/json"}
+    return make_response('it worked!', 200, headers)
 
 @app.route("/")
 def hello():
