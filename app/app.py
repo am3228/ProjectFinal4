@@ -26,7 +26,6 @@ def markup():
 def hello_template():
     return render_template("index.html")
 
-
 @app.route("/response")
 def response():
     headers = {"Content-Type": "application/json"}

@@ -1,28 +1,32 @@
 """Initialize Flask app."""
 from flask import Flask
-from flask_assets import Environment  # <-- Import `Environment`
+from flask_assets import Environment
+from ddtrace import patch_all
 
 
-def create_app():
+patch_all()
+
+
+def init_app():
     """Create Flask application."""
     app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object('config.Config')
-    assets = Environment()  # Create an assets environment
-    assets.init_app(app)  # Initialize Flask-Assets
+    app.config.from_object("config.Config")
+    assets = Environment()
+    assets.init_app(app)
 
     with app.app_context():
         # Import parts of our application
-        from .profile import profile
+        from .assets import compile_static_assets
         from .home import home
         from .products import products
-        from .assets import compile_static_assets
+        from .profile import profile
 
         # Register Blueprints
-        app.register_blueprint(profile.account_bp)
+        app.register_blueprint(profile.profile_bp)
         app.register_blueprint(home.home_bp)
         app.register_blueprint(products.product_bp)
 
         # Compile static assets
-        compile_static_assets(assets)  # Execute logic
+        compile_static_assets(assets)
 
         return app
