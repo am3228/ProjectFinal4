@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response, redirect
+from flask import Flask, render_template, make_response, redirect, url_for
 
 app = Flask(
     __name__,
@@ -25,7 +25,7 @@ def users():
 
 @app.route("/login")
 def login():
-    return redirect('/dashboard.html')
+    return redirect(url_for('dashboard')
 
 @app.route("/api/v1/users/", methods=['GET', 'POST', 'PUT'])
 def users():
