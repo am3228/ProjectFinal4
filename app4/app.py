@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response
 
 app = Flask(
     __name__,
@@ -12,6 +12,15 @@ def home():
         'index.html',
         title='Flask-Login Tutorial.',
         body="You are now logged in!"
+    )
+
+@app.route("/api/v2/test_response")
+def users():
+    headers = {"Content-Type": "application/json"}
+    return make_response(
+        'Test worked!',
+        200,
+        headers=headers
     )
 
 @app.route("/api/v1/users/", methods=['GET', 'POST', 'PUT'])
