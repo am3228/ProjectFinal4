@@ -96,6 +96,13 @@ def get_test_value():
         g.test_value = 'This the g-value'
     return g.test_value
 
+@app.route("/rm/g")
+def rm_test_value():
+    if 'test_value' in g:
+        redirect(url_for('remove_test_value'))
+    else:
+        return "There is NO g-value"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', post=5003, debug=True)
 
