@@ -90,6 +90,12 @@ def login():
             body="Sign up for a user account."
         )
 
+@app.route("/g")
+def get_test_value():
+    if 'test_value' not in g:
+        g.test_value = 'This the g-value'
+    return g.test_value
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', post=5003, debug=True)
 
