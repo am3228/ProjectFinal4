@@ -3,7 +3,7 @@ from flask import Flask
 # Using a development configuration
 app = Flask(__name__)
 app.config.from_object('config.DevConfig')
-
+app.config.from_object('config.DevConfig')
 
 @app.route("/")
 def home():
