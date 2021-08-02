@@ -13,7 +13,7 @@ def fetch_products(app):
         "totalPages": 1,
         "sort": "customerReviewAverage.dsc",
     }
-    headers = {"Accept": "application/json", "Content-Type": "application/json"}
+    headers = {"Accept": "flask_sqlalchemy_tutorial/json", "Content-Type": "flask_sqlalchemy_tutorial/json"}
     req = requests.get(endpoint, params=params, headers=headers)
     products = req.json()["products"]
     return products

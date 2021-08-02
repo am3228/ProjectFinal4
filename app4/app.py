@@ -48,7 +48,7 @@ def index():
 @app.route("/api/v2/test_response")
 def api_users():
     response = make_response('Test worked!', 200)
-    response.headers['Content-Type'] = 'application/json'
+    response.headers['Content-Type'] = 'flask_sqlalchemy_tutorial/json'
     return response
 
 
