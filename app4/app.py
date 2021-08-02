@@ -24,6 +24,11 @@ def profile(username):
     #... Logic goes here
     return "Hello, " + str(username)
 
+@app.route('/<int:year>/<int:month>/<title>')
+def article(year, month, title):
+    #... Logic goes here
+    return "Article Title: " + str(title) + "<br/> Month: " + str(month) + "<br/> Year: " + str(year)
+
 @app.route("/")
 def home():
     """Serve homepage template."""
@@ -34,47 +39,48 @@ def home():
     )
 
 @app.route("/api/v2/test_response")
-def users():
-    headers = {"Content-Type": "application/json"}
-    return make_response(
-        'Test worked!',
-        200,
-        headers=headers
-    )
+def api_users():
+    response = make_response('Test worked!', 200)
+    response.headers['Content-Type'] = 'application/json'
+    return response
+
+@app.route("/signin")
+def dashboard():
+    return redirect('/dashboard.html')
 
 @app.route("/login")
 def login():
     return redirect(url_for('dashboard')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@ app.route('/signup', methods=['GET', 'POST'])
     def signup_page():
         """User sign-up page."""
-        signup_form = SignupForm(request.form)
+        # signup_form = SignupForm(request.form)
         # POST: Sign user in
-        if request.method == 'POST':
-            if signup_form.validate():
-                # Get Form Fields
-                name = request.form.get('name')
-                email = request.form.get('email')
-                password = request.form.get('password')
-                website = request.form.get('website')
-                existing_user = User.query.filter_by(email=email).first()
-                if existing_user is None:
-                    user = User(
-                        name=name,
-                        email=email,
-                        password=generate_password_hash(
-                            password,
-                            method='sha256'
-                        ),
-                        website=website
-                    )
-                    db.session.add(user)
-                    db.session.commit()
-                    login_user(user)
-                    return redirect(url_for('main_bp.dashboard'))
-                flash('A user exists with that email address.')
-                return redirect(url_for('auth_bp.signup_page'))
+        # if request.method == 'POST':
+        #     if signup_form.validate():
+        #         # Get Form Fields
+        #         name = request.form.get('name')
+        #         email = request.form.get('email')
+        #         password = request.form.get('password')
+        #         website = request.form.get('website')
+        #         existing_user = User.query.filter_by(email=email).first()
+        #         if existing_user is None:
+        #             user = User(
+        #                 name=name,
+        #                 email=email,
+        #                 password=generate_password_hash(
+        #                     password,
+        #                     method='sha256'
+        #                 ),
+        #                 website=website
+        #             )
+        #             db.session.add(user)
+        #             db.session.commit()
+        #             login_user(user)
+        #             return redirect(url_for('main_bp.dashboard'))
+        #         flash('A user exists with that email address.')
+        #         return redirect(url_for('auth_bp.signup_page'))
         # GET: Serve Sign-up page
         return render_template(
             '/signup.html',
@@ -83,10 +89,6 @@ def login():
             template='signup-page',
             body="Sign up for a user account."
         )
-
-@app.route('/<int:year>/<int:month>/<title>')
-def article(year, month, title):
-    #... Logic goes here
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', post=5003, debug=True)
