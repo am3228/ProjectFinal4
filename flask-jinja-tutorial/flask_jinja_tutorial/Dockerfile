@@ -2,11 +2,11 @@
 
 EXPOSE 5001
 
-WORKDIR /flask_jinja_tutorial
+WORKDIR /flask-jinja-tutorial
 
-COPY requirements.txt /flask_jinja_tutorial
+COPY requirements.txt /flask-jinja-tutorial
 RUN pip install  -r requirements.txt --upgrade pip
 
-COPY . /flask_jinja_tutorial
+COPY . /flask-jinja-tutorial
 
 CMD python routes.py

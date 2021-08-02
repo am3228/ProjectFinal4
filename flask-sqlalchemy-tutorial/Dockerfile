@@ -2,12 +2,12 @@ FROM python:3.8
 
 EXPOSE 5008
 
-WORKDIR /flask_sqlalchemy_tutorial
+WORKDIR /flask-sqlalchemy-tutorial
 
-COPY requirements.txt /flask_sqlalchemy_tutorial
+COPY requirements.txt /flask-sqlalchemy-tutorial
 RUN pip install -r requirements.txt --upgrade pip
 
-COPY . /flask_sqlalchemy_tutorial
+COPY . /flask-sqlalchemy-tutorial
 
 ENV SECRET_KEY=GDtfDCFYjD
 ENV FLASK_APP=PartIX
