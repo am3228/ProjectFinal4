@@ -2,11 +2,11 @@ FROM python:3.8
 
 EXPOSE 5009
 
-WORKDIR /flasklogin-tutorial
+WORKDIR /flask_login_tutorial
 
-COPY requirements.txt /flasklogin-tutorial
+COPY requirements.txt /flask_login_tutorial
 RUN pip install  -r requirements.txt --upgrade pip
 
-COPY . /flasklogin-tutorial
+COPY .. /flask_login_tutorial
 
 CMD python routes.py
