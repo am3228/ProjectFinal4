@@ -1,4 +1,4 @@
-"""Routes for logged-in flask_session_tutorial."""
+"""Routes for logged-in flask-session-tutorial."""
 from flask import Blueprint
 from flask import current_app as app
 from flask import redirect, render_template, session, url_for
