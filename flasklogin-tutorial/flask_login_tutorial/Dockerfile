@@ -7,6 +7,6 @@ WORKDIR /flask_login_tutorial
 COPY requirements.txt /flask_login_tutorial
 RUN pip install  -r requirements.txt --upgrade pip
 
-COPY .. /flask_login_tutorial
+COPY . /flask_login_tutorial
 
 CMD python routes.py

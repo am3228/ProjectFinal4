@@ -28,7 +28,7 @@ def hello_template():
 
 @app.route("/response")
 def response():
-    headers = {"Content-Type": "flask_sqlalchemy_tutorial/json"}
+    headers = {"Content-Type": "application/json"}
     return make_response('it worked!!', 200, headers)
 
 
@@ -36,7 +36,7 @@ def response():
 def get_hello():
     if request.method != 'GET':
         return make_response('Malformed request', 400)
-    headers = {"Content-Type": "flask_sqlalchemy_tutorial/json"}
+    headers = {"Content-Type": "application/json"}
     return make_response('it worked!!', 200, headers)
 
 
@@ -45,7 +45,7 @@ def hello():
     if request.method != 'GET':
         return make_response('Malformed request', 400)
     my_dict = {'key': 'dictionary value'}
-    headers = {"Content-Type": "flask_sqlalchemy_tutorial/json"}
+    headers = {"Content-Type": "application/json"}
     return make_response(jsonify(my_dict), 200, headers)
 
 

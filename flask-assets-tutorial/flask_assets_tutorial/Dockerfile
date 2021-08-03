@@ -7,6 +7,6 @@ WORKDIR /flask-assets-tutorial
 COPY requirements.txt /flask-assets-tutorial
 RUN pip install  -r requirements.txt --upgrade pip
 
-COPY .. /flask-assets-tutorial
+COPY . /flask-assets-tutorial
 
-CMD python app.py
+CMD python

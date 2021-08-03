@@ -1,5 +1,5 @@
 """Application entry point."""
-from Flask_Blueprint_Tutorial import init_app
+from flask_blueprint_tutorial import init_app
 
 app = init_app()
 
