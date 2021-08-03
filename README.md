@@ -3,6 +3,7 @@ This is project four for IS601 at NJIT. This project is a tutorial found at the 
 
 ## Part 1
 
+<img width="1128" alt="Part 1 Screenshot" src="https://user-images.githubusercontent.com/85464227/127957711-5e45b04e-88cb-4a3a-a19f-c29cec0a922d.png">
 
 ## Part 2
 <img width="1125" alt="Part 2 Screenshot" src="https://user-images.githubusercontent.com/85464227/127939650-e391dab4-f006-4606-a351-45cbafeb5d2f.png">
