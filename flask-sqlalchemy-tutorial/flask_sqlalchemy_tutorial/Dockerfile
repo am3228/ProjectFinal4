@@ -2,15 +2,15 @@ FROM python:3.8
 
 EXPOSE 5008
 
-WORKDIR /flask-sqlalchemy-tutorial
+WORKDIR /flask_sqlalchemy_tutorial
 
-COPY requirements.txt /flask-sqlalchemy-tutorial
+COPY requirements.txt /flask_sqlalchemy_tutorial
 RUN pip install -r requirements.txt --upgrade pip
 
-COPY . /flask-sqlalchemy-tutorial
+COPY . /flask_sqlalchemy_tutorial
 
 ENV SECRET_KEY=GDtfDCFYjD
-ENV FLASK_APP=PartIX
+ENV FLASK_APP=Part_9
 ENV FLASK_ENV=development
 ENV SQLALCHEMY_DATABASE_URI=TODO
 

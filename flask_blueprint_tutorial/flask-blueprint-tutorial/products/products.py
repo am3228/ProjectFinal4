@@ -10,7 +10,6 @@ product_bp = Blueprint(
     "products_bp", __name__, template_folder="templates", static_folder="static"
 )
 
-
 @product_bp.route("/products/<int:product_id>/", methods=["GET"])
 def product_page(product_id):
     """Product description page."""

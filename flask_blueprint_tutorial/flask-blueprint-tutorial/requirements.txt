@@ -1,0 +1,7 @@
+flask
+flask-SQLAlchemy
+flask-redis
+flask-assets
+faker
+requests
+ddtrace

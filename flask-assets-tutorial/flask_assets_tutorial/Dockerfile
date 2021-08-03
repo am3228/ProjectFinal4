@@ -9,4 +9,4 @@ RUN pip install  -r requirements.txt --upgrade pip
 
 COPY . /flask-assets-tutorial
 
-CMD python
+CMD python app.py

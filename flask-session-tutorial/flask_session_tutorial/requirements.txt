@@ -5,4 +5,4 @@ Flask-session
 Flask-SQLAlchemy
 wtforms
 PyMySQL
-Redis
+redis
